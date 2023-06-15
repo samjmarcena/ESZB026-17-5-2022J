@@ -10,9 +10,9 @@ i=0
 echo $LED_AMARELO > /sys/class/gpio/export
 echo $LED_VERMELHO > /sys/class/gpio/export
 echo $LED_VERDE > /sys/class/gpio/export
-sleep .5
+sleep 0.5
 
-while [i<5]
+while [ $i -lt 5 ]
   do
     echo "out" > /sys/class/gpio/gpio$LED_VERMELHO/direction
     echo $VALUE > /sys/class/gpio/gpio$LED_VERMELHO/value
@@ -29,7 +29,7 @@ while [i<5]
     sleep 1
     echo 0 > /sys/class/gpio/gpio$LED_AMARELO/value
 
-    i=i+1
+    i=$((i+1))
   done
   
 echo $LED_VERMELHO > /sys/class/gpio/unexport

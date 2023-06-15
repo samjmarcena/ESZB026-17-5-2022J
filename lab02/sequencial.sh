@@ -7,31 +7,31 @@ LED_VERDE=21
 VALUE=$1      # Argumento fornecido ao executar o script
 i=0
 
-echo $LED_AMARELO > "/sys/class/gpio/export"
-echo $LED_VERMELHO > "/sys/class/gpio/export"
-echo $LED_VERDE > "/sys/class/gpio/export"
+echo $LED_AMARELO > /sys/class/gpio/export
+echo $LED_VERMELHO > /sys/class/gpio/export
+echo $LED_VERDE > /sys/class/gpio/export
 sleep .5
 
 while [i<5]
   do
-    echo "out" > "/sys/class/gpio/gpio$LED_VERMELHO/direction"
-    echo $VALUE > "/sys/class/gpio/gpio$LED_VERMELHO/value"
+    echo "out" > /sys/class/gpio/gpio$LED_VERMELHO/direction
+    echo $VALUE > /sys/class/gpio/gpio$LED_VERMELHO/value
     sleep 2
-    echo 0 > "/sys/class/gpio/gpio$LED_VERMELHO/value"
+    echo 0 > /sys/class/gpio/gpio$LED_VERMELHO/value
 
-    echo "out" > "/sys/class/gpio/gpio$LED_VERDE/direction"
-    echo $VALUE > "/sys/class/gpio/gpio$LED_VERDE/value"
+    echo "out" > /sys/class/gpio/gpio$LED_VERDE/direction
+    echo $VALUE > /sys/class/gpio/gpio$LED_VERDE/value
     sleep 1
-    echo 0 > "/sys/class/gpio/gpio$LED_VERDE/value"
+    echo 0 > /sys/class/gpio/gpio$LED_VERDE/value
 
-    echo "out" > "/sys/class/gpio/gpio$LED_AMARELO/direction"
-    echo $VALUE > "/sys/class/gpio/gpio$LED_AMARELO/value"
+    echo "out" > /sys/class/gpio/gpio$LED_AMARELO/direction
+    echo $VALUE > /sys/class/gpio/gpio$LED_AMARELO/value
     sleep 1
-    echo 0 > "/sys/class/gpio/gpio$LED_AMARELO/value"
+    echo 0 > /sys/class/gpio/gpio$LED_AMARELO/value
 
     i=i+1
   done
   
-echo $LED_VERMELHO > "/sys/class/gpio/unexport"
-echo $LED_VERDE > "/sys/class/gpio/unexport"
-echo $LED_AMARELO > "/sys/class/gpio/unexport"
+echo $LED_VERMELHO > /sys/class/gpio/unexport
+echo $LED_VERDE > /sys/class/gpio/unexport
+echo $LED_AMARELO > /sys/class/gpio/unexport

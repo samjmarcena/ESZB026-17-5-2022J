@@ -11,19 +11,32 @@ import RPi.GPIO as GPIO
 import time
 
 LED_AMARELO = 16  # Número do pino GPIO conectado ao LED
+LED_VERMELHO = 20
+LED_VERDE = 21
+i = 0 #contador
 
-# Configuração inicial
+#configuração inicial
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(LED_AMARELO, GPIO.OUT)
+GPIO.setup(LED_VERMELHO, GPIO.OUT)
+GPIO.setup(LED_VERDE, GPIO.OUT)
 
-# Ligar o LED
-GPIO.output(LED_AMARELO, GPIO.HIGH)
+while(i<5): #repete 5x
+    
+    #liga e desliga dos leds
+    GPIO.output(LED_VERMELHO, GPIO.HIGH)
+    time.sleep(2)
+    GPIO.output(LED_VERMELHO, GPIO.LOW)
 
-# Aguardar 3 segundos
-time.sleep(3)
+    GPIO.output(LED_VERDE, GPIO.HIGH)
+    time.sleep(1)
+    GPIO.output(LED_VERDE, GPIO.LOW)
 
-# Desligar o LED
-GPIO.output(LED_AMARELO, GPIO.LOW)
+    GPIO.output(LED_AMARELO, GPIO.HIGH)
+    time.sleep(1)
+    GPIO.output(LED_AMARELO, GPIO.LOW)
+    
+    i=i+1
 
-# Limpeza dos recursos utilizados
+#desconectando as portas GPIO
 GPIO.cleanup()

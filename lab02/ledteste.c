@@ -1,22 +1,18 @@
+#!/bin/bash
+
 #include <wiringPi.h>
 
-#define LED_GPIO 16
+#define LED_AMARELO 16
 
 int main(void) {
-    // Inicializar a biblioteca WiringPi
+    //configuração inicial
     wiringPiSetup();
+    pinMode(LED_AMARELO, OUTPUT);
 
-    // Configurar o pino do LED como saída
-    pinMode(LED_GPIO, OUTPUT);
 
-    // Ligar o LED
-    digitalWrite(LED_GPIO, HIGH);
-
-    // Aguardar 3 segundos
+    digitalWrite(LED_AMARELO, HIGH);
     delay(3000);
-
-    // Desligar o LED
-    digitalWrite(LED_GPIO, LOW);
+    digitalWrite(LED_AMARELO, LOW);
 
     return 0;
 }

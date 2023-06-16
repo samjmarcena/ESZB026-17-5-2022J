@@ -1,5 +1,3 @@
-#!/bin/bash
-
 #include <wiringPi.h>
 
 #define LED_AMARELO 16

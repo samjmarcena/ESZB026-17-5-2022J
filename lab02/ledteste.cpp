@@ -10,7 +10,7 @@ int main(void) {
     while (true) {
         digitalWrite(LED_AMARELO, HIGH);  // Ligar o LED
         delay(1000);                  // Aguardar 1 segundo
-        digitalWrite(LED_AMAREÇP, LOW);   // Desligar o LED
+        digitalWrite(LED_AMARELO, LOW);   // Desligar o LED
         delay(1000);                  // Aguardar 1 segundo
     }
 

@@ -1,48 +1,37 @@
-/*
- * blink.c:
- *	Standard "blink" program in wiringPi. Blinks an LED connected
- *	to the first GPIO pin.
- *
- * Copyright (c) 2012-2013 Gordon Henderson.
- ***********************************************************************
- * This file is part of wiringPi:
- *      https://github.com/WiringPi/WiringPi
- *
- *    wiringPi is free software: you can redistribute it and/or modify
- *    it under the terms of the GNU Lesser General Public License as published by
- *    the Free Software Foundation, either version 3 of the License, or
- *    (at your option) any later version.
- *
- *    wiringPi is distributed in the hope that it will be useful,
- *    but WITHOUT ANY WARRANTY; without even the implied warranty of
- *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *    GNU Lesser General Public License for more details.
- *
- *    You should have received a copy of the GNU Lesser General Public License
- *    along with wiringPi.  If not, see <http://www.gnu.org/licenses/>.
- ***********************************************************************
- */
-
 #include <stdio.h>
 #include <wiringPi.h>
 
-// LED Pin - wiringPi pin 0 is BCM_GPIO 17.
+// LED_AMARELO Pin - wiringPi pin 27 is BCM_GPIO 16.
+// LED_VERMELHO Pin - wiringPi pin 28 is BCM_GPIO 20.
+// LED_VERDE Pin - wiringPi pin 0 29 BCM_GPIO 21.
+// Check lib documentation to see the respectives Wiring pins to GPIO
 
-#define	LED	0
-
+#define	LED_AMARELO	27
+#define	LED_VERMELHO	28
+#define	LED_VERDE	29
+#define i=0
 int main (void)
 {
-  printf ("Raspberry Pi blink\n") ;
+  printf ("ta funcionando?\n") ;
 
   wiringPiSetup () ;
-  pinMode (LED, OUTPUT) ;
+  pinMode (LED_AMARELO, OUTPUT) ;
+  pinMode (LED_VERMELHO, OUTPUT) ;
+  pinMode (LED_VERDE, OUTPUT) ;
 
-  for (;;)
+
+
+  while (i<5)
   {
-    digitalWrite (LED, HIGH) ;	// On
-    delay (500) ;		// mS
-    digitalWrite (LED, LOW) ;	// Off
-    delay (500) ;
+    digitalWrite (LED_VERMELHO, HIGH) ;
+    delay (2000) ;
+    digitalWrite (LED_VERMELHO, LOW) ;
+    digitalWrite (LED_VERDE, HIGH) ;
+    delay (1000) ;
+    digitalWrite (LED_VERDE, LOW) ;
+    digitalWrite (LED_AMARELO, HIGH) ;
+    delay (1000) ;
+    digitalWrite (LED_AMARELO, LOW) ;
   }
   return 0 ;
 }

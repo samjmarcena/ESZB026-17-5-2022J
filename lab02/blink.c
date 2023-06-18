@@ -9,7 +9,7 @@
 #define	LED_AMARELO	27
 #define	LED_VERMELHO	28
 #define	LED_VERDE	29
-#define i=0
+
 int main (void)
 {
   printf ("ta funcionando?\n") ;
@@ -20,18 +20,22 @@ int main (void)
   pinMode (LED_VERDE, OUTPUT) ;
 
 
-
+  int i = 0;
   while (i<5)
   {
     digitalWrite (LED_VERMELHO, HIGH) ;
     delay (2000) ;
     digitalWrite (LED_VERMELHO, LOW) ;
+    
     digitalWrite (LED_VERDE, HIGH) ;
     delay (1000) ;
     digitalWrite (LED_VERDE, LOW) ;
+    
     digitalWrite (LED_AMARELO, HIGH) ;
     delay (1000) ;
     digitalWrite (LED_AMARELO, LOW) ;
+
+    i = i+1;
   }
   return 0 ;
 }

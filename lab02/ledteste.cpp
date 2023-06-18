@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <wiringPi.h>
 
-#define LED_AMARELO 16
+#define LED_AMARELO 27
 
 int main(void) {
     wiringPiSetup();
